@@ -18,6 +18,7 @@ const program = new commander.Command(packageJson.name).version(
 const COMMANDS = {
   new: 'new',
 };
+let invalid = false;
 
 program
   .command(`${COMMANDS.new} [appName]`)
@@ -66,8 +67,9 @@ program
     console.log(`    Only ${chalk.green('<project-directory>')} is required.`);
     console.log();
   });
+  program.parse(process.argv);
 
-let invalid = false;
+
 if (!process.argv[2]) {
   invalid = true;
 } else {
