@@ -1,5 +1,5 @@
 {
-  "name": "create-r3",
+  "name": "@devfloww/create-r3",
   "version": "1.0.0",
   "description": "CLI for creating next.js apps boilerplate",
   "main": "index.js",
@@ -15,7 +15,7 @@
     ]
   },
   "bin": {
-    "create-r3": "./bin/index.js"
+    "create-r3": "bin/index.js"
   },
   "keywords": [
     "nextjs",
@@ -43,5 +43,14 @@
     "lint-staged": "^4.2.2",
     "prettier": "^1.6.1"
   },
-  "npmName": "create-r3"
+  "npmName": "create-r3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debashissaha21/create-r3-app.git"
+  },
+  "author": "debashissaha21",
+  "bugs": {
+    "url": "https://github.com/debashissaha21/create-r3-app/issues"
+  },
+  "homepage": "https://github.com/debashissaha21/create-r3-app#readme"
 }

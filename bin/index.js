@@ -23,7 +23,7 @@ program
   .command(`${COMMANDS.new} [appName]`)
   .description('Create new nextjs app')
 
-  .action(function(appName) {
+  .action(function (appName) {
     if (typeof appName === 'undefined') {
       console.error('Please specify the project directory:');
       console.log(
@@ -51,27 +51,36 @@ program
         console.log(
           chalk.yellow(
             `You are using npm ${npmVersion} so the project will be boostrapped with an old unsupported version of tools.\n\n` +
-              `Please update to npm 3 or higher for a better, fully supported experience.\n`
+            `Please update to npm 3 or higher for a better, fully supported experience.\n`
           )
         );
       }
     }
 
-    questionnaire(function(selectedIndex) {
+    questionnaire(function (selectedIndex) {
       install(useYarn, selectedIndex);
     });
   })
   .allowUnknownOption()
-  .on('--help', function() {
+  .on('--help', function () {
     console.log(`    Only ${chalk.green('<project-directory>')} is required.`);
     console.log();
   });
+
+let invalid = false;
+if (!process.argv[2]) {
+  invalid = true;
+} else {
+  if (!COMMANDS[process.argv[2]]) {
+    invalid = true;
+  }
+}
 
 if (invalid) {
   spawn('cna', ['--help'], {
     cwd: process.cwd(),
     stdio: 'inherit',
-  }).on('exit', function() {
+  }).on('exit', function () {
     process.exit(1);
   });
 }
