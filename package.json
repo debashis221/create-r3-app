@@ -1,6 +1,6 @@
 {
   "name": "@devfloww/create-r3",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI for creating next.js apps boilerplate",
   "main": "index.js",
   "scripts": {
