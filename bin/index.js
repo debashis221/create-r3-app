@@ -69,20 +69,3 @@ program
   });
   program.parse(process.argv);
 
-
-if (!process.argv[2]) {
-  invalid = true;
-} else {
-  if (!COMMANDS[process.argv[2]]) {
-    invalid = true;
-  }
-}
-
-if (invalid) {
-  spawn('cna', ['--help'], {
-    cwd: process.cwd(),
-    stdio: 'inherit',
-  }).on('exit', function () {
-    process.exit(1);
-  });
-}
